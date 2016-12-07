@@ -1,0 +1,365 @@
+\documentclass[a4paper, twoside, 12pt]{report}
+\usepackage[utf8]{inputenc}
+%\usepackage{czech}
+%\usepackage[latin2]{inputenc} % pro iso8859-2
+%\usepackage[czech]{babel}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage[a4paper, left=35mm, right=25mm, top=25mm,bottom=25mm]{geometry} %,bindingoffset=6mm
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{listings}
+\usepackage{color}
+\usepackage{titlesec}
+\usepackage{tikz}
+\usepackage{nicefrac}
+\usepackage{rotating}
+%\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{pdfpages}
+
+\usepackage[unicode]{hyperref}
+
+%\usepackage{floatrow}
+%\newfloatcommand{capbtabbox}{table}[][\FBwidth]
+
+%VELKE PISMENA u~OBSAHU
+%\usepackage{tocloft}
+%\renewcommand{\cfttoctitlefont}{\bfseries\LARGE\MakeUppercase}
+%\renewcommand{\cftlottitlefont}{\bfseries\LARGE\MakeUppercase}
+%\renewcommand{\cftloftitlefont}{\bfseries\LARGE\MakeUppercase}
+%\renewcommand{\cftaftertoctitle}{\hfill}
+%\renewcommand{\cftafterlottitle}{\hfill}
+%\renewcommand{\cftafterloftitle}{\hfill}
+%\centering{\cftlottitlefont}
+
+\usepackage{hyperref} % enable links in content
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\title{Template}
+\author{Author}
+\linespread{1.1} % Line spacing
+
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+
+\setlength{\headheight}{15pt}
+
+\fancypagestyle{plain}{%
+  	\fancyhf{}
+	\renewcommand{\headrulewidth}{0.4pt}
+	\renewcommand{\footrulewidth}{0.4pt}
+	\fancyhead{}
+	\fancyhead[RO,LE]{Contents}
+	\fancyfoot{}
+	\fancyfoot[LE,RO]{\thepage}
+}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\fancyhead{}
+\fancyhead[RO,LE]{\chaptername ~\thechapter ~- \leftmark}
+\fancyfoot{}
+\fancyfoot[LE,RO]{\thepage}
+
+%% Odstrani Kapitole X
+\titlespacing*{\chapter}{0pt}{-10pt}{20pt}
+%\titleformat{\chapter}[display]{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\chapter}
+  {\bfseries\Large} % format\centering
+  {\bfseries\LARGE\thechapter. }                % label
+  {0pt}             % sep
+  {\LARGE}           % before-code
+%\bfseries
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\null\thispagestyle{empty}
+VYNECHANI - NETISKNOUT
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% TITLE PAGE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+\begin{center}
+\thispagestyle{empty}
+
+\textsc{\Huge{The Czech Technical University in Prague}\\
+\vspace{\stretch{0.0075}}
+\Large{Faculty of electrical engineering}\\
+\vspace{\stretch{0.0075}}
+\Large{Department of control engineering}
+}\\
+\vspace{\stretch{0.02}}
+\includegraphics[width=120px]{images/ctulogo.pdf}\\
+\vspace{\stretch{0.200}}
+\Huge{Thesis name}\\
+\Large{Type of work}
+\vspace{\stretch{0.25}}
+\\Autor: Author\\~\\
+Field of study: Field of study \\
+Specialization: Specialization
+\vspace{\stretch{0.3}}
+\end{center}
+{\large YEAR \hfill Supervisor: Ing. Supervisor, Ph.D.}
+
+\end{titlepage}
+
+\newpage
+\null\thispagestyle{empty}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% ASSIGNMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\includepdf[pages={1}]{pages/assignment.pdf}
+\newpage
+\null\thispagestyle{empty}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DECLARATION 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\includepdf[pages={4}]{pages/declaration.pdf}
+\chapter*{Declaration}
+\setcounter{page}{5}
+\thispagestyle{empty}
+\vspace{18cm}
+
+%\begin{changemargin}{2cm}{3.5cm} 
+Prohlašuji, že jsem předloženou práci vypracoval samostatně a~že jsem uvedl veškeré použité informační zdroje v~souladu s~Metodickým pokynem o dodržování etických principů při přípravě vysokoškolských závěrečných prací.\vspace{1cm}
+\\In Prague date 9.1.2016 \hfill
+Signature: ..................................
+%\end{changemargin}
+
+\newpage
+\null\thispagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% ACKNOWLEDGMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\chapter*{Acknowledgment}
+\thispagestyle{empty}
+\vspace{20px}
+Thanks to ...
+
+\thispagestyle{empty}
+
+\newpage
+\null\thispagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% ABSTRACT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\chapter*{Abstrakt}
+\thispagestyle{empty}
+Abstrakt v češtině.
+
+\begingroup
+\vspace{25px}
+\let\clearpage\relax
+\chapter*{Abstract}
+\thispagestyle{empty}
+
+Abstract in English.
+
+%\end{changemargin}
+
+\section*{Key words}
+key, word
+\endgroup
+
+\newpage\null\thispagestyle{empty}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% CONTENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\thispagestyle{fancy}
+%\pagenumbering{roman}
+
+\setcounter{page}{11}
+
+\tableofcontents
+\pagestyle{plain}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% LIST OF FIGURES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\fancyhead[RO,LE]{List of figures}
+\listoffigures
+\thispagestyle{fancy}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% LIST OF TABLES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\fancyhead[RO,LE]{List of tables}
+\listoftables
+\thispagestyle{fancy}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% INTRODUCTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\fancyhead[RO,LE]{\chaptername ~\thechapter ~- \leftmark}
+%\pagenumbering{arabic}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{ \markboth{#1}{} }
+\renewcommand{\sectionmark}[1]{ \markright{#1}{} }
+\chapter{Introductions}
+\thispagestyle{fancy}
+
+Cool úvod sem!
+
+\section{Motivace}
+
+Motivace tady!
+
+\section{Způsob řešení}
+
+Způsob řešení!
+
+
+\section{Zdroje pro práci}
+\label{kap1.zdroje}
+
+Popis zdrojů!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% CONCLUSION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Conclusion}
+\thispagestyle{fancy}
+
+Závěr práce zde!
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SOURCES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+%\renewcommand{\bibname}{List of sources}
+%\renewcommand\chaptername{Appendix}
+
+\fancyhead{}
+\fancyhead[RO,LE]{\leftmark}
+\begin{thebibliography}{}
+\thispagestyle{fancy}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% BOOKS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Books}
+
+\bibitem{bookone}
+  	MITCHELL, Mark; OLDHAM Jeffry; SAMUEL Alex. 
+  	\emph{Pokročilé programování v~operačním systému Linux}. 
+  	Praha : SoftPress s. r. o. 
+  	2002. 
+  	320 s.
+  	ISBN 80-86497-29-1.
+	
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% INTERNET SOURCES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Internet sources}
+
+\bibitem{webone}
+	\emph{NOOBS setup \textbar~Raspberry Pi} [online]. 
+	[cit. 2014-05-05]. 
+	Dostupné z: \url{http://www.raspberrypi.org/help/noobs-setup/}	
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% FILES SOURCES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{List of used source codes}
+
+\bibitem{codeone}
+	\emph{2014-01-07-wheezy-raspbian} [online].
+	[cit. 2014-05-05].
+  	Dostupné z: \url{http://downloads.raspberrypi.org/raspbian_latest}
+
+\end{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% APPENDIX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DVD
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{DVD} \label{App.dvd}
+\renewcommand\chaptername{Appendix}
+\thispagestyle{fancy}
+\fancyhead[RO,LE]{\chaptername ~\thechapter ~- \leftmark}
+
+Attached DVD includes following files:
+\begin{description}
+\item[folder]\dotfill description
+	\begin{description}
+	\item[sub folder] \dotfill description
+		\begin{description}
+			\item[$\cdot$] file.c \dotfill Some file
+		\end{description}
+	\item[$\cdot$] file.c \dotfill Some file
+	\end{description}
+\end{description}  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% ABBREVIATIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\chapter{List of abbrevations} \label{App:abb}
+\thispagestyle{fancy}
+
+\begin{tabular}{ l | l }
+  Abbreviation & Meaning \\
+  \hline
+  \hline
+  SW & Software \\
+  USB & Universal Serial Bus 
+  
+\end{tabular}
+
+\end{document}
